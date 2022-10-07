@@ -62,7 +62,7 @@ global.loadDatabase = async function loadDatabase() {
 loadDatabase()
 
 global.conn = new WAConnection()
-let authFile = opts['session'] ? opts['session'] + '.json' : `session.data.json`
+let authFile =`${opts._[0] || 'session'}.data.json`
 if (fs.existsSync(authFile)) conn.loadAuthInfo(authFile)
 if (opts['trace']) conn.logger.level = 'trace'
 if (opts['debug']) conn.logger.level = 'debug'
